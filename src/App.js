@@ -16,7 +16,21 @@ export const App = () => {
 
   console.log("retrieved data>>>", data); // Delete it later.
 
-  return <div className="app"></div>;
+  return (
+    <div className="app">
+      <h1>Fetch the data from google spread sheets.</h1>
+      <ul>
+        {data.map((item, i) => (
+          <Fragment key={i}>
+            <li>URL -- {item.url}</li>
+            <li>Email -- {item.email}</li>
+            <li>Token -- {item.token}</li>
+            <br />
+          </Fragment>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default App;
