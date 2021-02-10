@@ -22,7 +22,6 @@ export const App = () => {
       <ul>
         {data.map((item, i) => (
           <Fragment key={i}>
-            <li>URL -- {item.url}</li>
             <li>Email -- {item.email}</li>
             <li>Token -- {item.token}</li>
             <br />
