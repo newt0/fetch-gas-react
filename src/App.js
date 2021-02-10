@@ -4,6 +4,7 @@ import Tabletop from "tabletop";
 
 export const App = () => {
   const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
 
   useEffect(() => {
     Tabletop.init({
@@ -14,6 +15,15 @@ export const App = () => {
       .catch((err) => console.warn(err)); // Fix it later.
   }, []);
 
+  useEffect(() => {
+    Tabletop.init({
+      key: "1WtWt1Df5l1m2yJN62C0omJYLAnHsAz6PLum94fw9pWc", // Hide it later.
+      simpleSheet: true,
+    })
+      .then((data) => setData2(data))
+      .catch((err) => console.warn(err)); // Fix it later.
+  }, []);
+
   console.log("retrieved data>>>", data); // Delete it later.
 
   return (
@@ -21,6 +31,15 @@ export const App = () => {
       <h1>Fetch the data from google spread sheets.</h1>
       <ul>
         {data.map((item, i) => (
+          <Fragment key={i}>
+            <li>Email -- {item.email}</li>
+            <li>Token -- {item.token}</li>
+            <br />
+          </Fragment>
+        ))}
+      </ul>
+      <ul>
+        {data2.map((item, i) => (
           <Fragment key={i}>
             <li>Email -- {item.email}</li>
             <li>Token -- {item.token}</li>
